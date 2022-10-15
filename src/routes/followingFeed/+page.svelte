@@ -1,6 +1,6 @@
 <script type="ts">
-	import BlogsNav from '../components/BlogsNav.svelte';
-	import Blog from '../components/Blog.svelte'
+	import BlogsNav from '../../components/BlogsNav.svelte';
+	import Blog from '../../components/Blog.svelte'
 	interface blog {
 		profileName: string;
 		profilePicture: string;
@@ -40,7 +40,7 @@
 	];
 </script>
 
-<BlogsNav selected="For you" />
+<BlogsNav selected="Following" />
 
 <div class="mt-5 space-y-4">
 	{#each blogs as item}

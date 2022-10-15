@@ -1,6 +1,6 @@
 <script type="ts">
-	import BlogsNav from '../components/BlogsNav.svelte';
-	import Blog from '../components/Blog.svelte'
+	import BlogsNav from './BlogsNav.svelte';
+	import Blog from './Blog.svelte'
 	interface blog {
 		profileName: string;
 		profilePicture: string;
