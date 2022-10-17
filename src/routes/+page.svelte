@@ -1,15 +1,19 @@
 <script type="ts">
-	import BlogsNav from '../components/BlogsNav.svelte';
 	import Blog from '../components/Blog.svelte'
+	import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
+    import TabNavigation from '../components/TabNavigation.svelte'
+	import Welcome from '../components/Welcome.svelte'
+	import AddFollow from '../components/AddFollow.svelte'
 	interface blog {
-		profileName: string;
-		profilePicture: string;
 		title: string;
-		description: string;
-		type: string;
-		views: number;
-		image: string;
-		addedAt: string;
+        profileName: string;
+        profilePicture: string;
+        type: string;
+        description: string;
+        views:number;
+        image: string;
+        createdAt: string;
+        updatedAt: string;
 	}
 
 	let blogs: blog[] = [
@@ -23,7 +27,8 @@
 			views: 3,
 			image:
 				'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/63UKXXVFKRAQLBUDM3K4LKRXPQ.JPG',
-			addedAt: '3 days ago'
+			createdAt: '3 days ago',
+			updatedAt: '3 days ago'
 		},
 		{
 			profileName: 'Jordan Poole',
@@ -35,12 +40,31 @@
 			views: 3,
 			image:
 				'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/63UKXXVFKRAQLBUDM3K4LKRXPQ.JPG',
-			addedAt: '3 days ago'
+			createdAt: '3 days ago',
+			updatedAt: '3 days ago'
 		},
 	];
+	interface link{
+		title: string;
+		path: string;
+	}
+    let links:link[]=[
+        {
+            title:"For you",
+            path:"/"
+        },
+        {
+            title:"Following",
+            path:"/followingFeed"
+        }
+    ]
 </script>
-
-<BlogsNav selected="For you" />
+<Welcome />
+<TabNavigation  links={links} selected={"For you"}>
+<svelte:fragment slot="specialFrontComponent">
+	<AddFollow />
+</svelte:fragment>
+</TabNavigation>
 
 <div class="mt-5 space-y-4">
 	{#each blogs as item}

@@ -1,11 +1,8 @@
 <script type="ts">
-	import Blog from '../../components/Blog.svelte';
+    	import Blog from '../../../components/Blog.svelte'
 	import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
-	import TabNavigation from '../../components/TabNavigation.svelte';
-	import Welcome from '../../components/Welcome.svelte';
-	import AddFollow from '../../components/AddFollow.svelte'
-	interface blog {
-		title: string;
+    	interface blog {
+            title: string;
         profileName: string;
         profilePicture: string;
         type: string;
@@ -28,7 +25,7 @@
 			image:
 				'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/63UKXXVFKRAQLBUDM3K4LKRXPQ.JPG',
 			createdAt: '3 days ago',
-			updatedAt: '3 days ago'
+            updatedAt: '3 days ago'
 		},
 		{
 			profileName: 'Jordan Poole',
@@ -41,34 +38,19 @@
 			image:
 				'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/63UKXXVFKRAQLBUDM3K4LKRXPQ.JPG',
 			createdAt: '3 days ago',
-			updatedAt: '3 days ago'
-		}
-	];
-	interface link {
-		title: string;
-		path: string;
-	}
-	let links: link[] = [
-		{
-			title: 'For you',
-			path: '/'
+            updatedAt: '3 days ago'
 		},
-		{
-			title: 'Following',
-			path: '/followingFeed'
-		}
 	];
+
 </script>
-
-<Welcome />
-<TabNavigation {links} selected={'Following'}>
-	<svelte:fragment slot="specialFrontComponent">
-	<AddFollow />
-	</svelte:fragment>
-</TabNavigation>
-
-<div class="mt-5 space-y-4">
-	{#each blogs as item}
-		<Blog {item} />
-	{/each}
+<div class="space-y-12 py-6 ">
+	<div class=" w-full p-5 bg-gray-100 flex flex-row justify-between">
+        <p>You can clear your reading history for a fresh start.</p>
+        <button class="w-fit px-3 bg-red-700 hover:bg-red-500 rounded-full text-sm py-2 text-white font-semibold">Clear history</button>
+    </div>
+    <div class="mt-5 space-y-4">
+        {#each blogs as item}
+        <Blog item={item} inHistory />
+        {/each}
+    </div>
 </div>

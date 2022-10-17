@@ -1,19 +1,18 @@
 <script type="ts">
-	import BlogsNav from './BlogsNav.svelte';
-	import Blog from './Blog.svelte'
-	interface blog {
-		title: string;
-        profileName: string;
-        profilePicture: string;
-        type: string;
-        description: string;
-        views:number;
-        image: string;
-        createdAt: string;
-        updatedAt: string;
-	}
+	import Draft from "../../../../components/Draft.svelte";
 
-	let blogs: blog[] = [
+	interface draft {
+		title: string;
+		profileName: string;
+		profilePicture: string;
+		type: string;
+		description: string;
+		views: number;
+		image: string;
+		createdAt: string;
+		updatedAt: string;
+	}
+	let drafts: draft[] = [
 		{
 			profileName: 'Jordan Poole',
 			profilePicture:
@@ -24,8 +23,8 @@
 			views: 3,
 			image:
 				'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/63UKXXVFKRAQLBUDM3K4LKRXPQ.JPG',
-			createdAt: '3 days ago',
-			updatedAt: '3 days ago'
+			updatedAt: '3 days ago',
+			createdAt: '3 days ago'
 		},
 		{
 			profileName: 'Jordan Poole',
@@ -37,16 +36,18 @@
 			views: 3,
 			image:
 				'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/63UKXXVFKRAQLBUDM3K4LKRXPQ.JPG',
-			createdAt: '3 days ago',
-			updatedAt: '3 days ago'
-		},
+			updatedAt: '3 days ago',
+			createdAt: '3 days ago'
+		}
 	];
 </script>
 
-<BlogsNav selected="For you" />
-
-<div class="mt-5 space-y-4">
-	{#each blogs as item}
-	<Blog item={item} />
-	{/each}
+<div class="space-y-12 py-6 ">
+	{#if drafts.length > 0}
+		{#each drafts as item}
+			<Draft item={item}/>
+		{/each}
+	{:else}
+		<p class="text-gray-500 mt-10 text-center">You have no saved drafts.</p>
+	{/if}
 </div>

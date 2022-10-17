@@ -36,7 +36,7 @@
 					</div>
 				</IconButton>
 			</a>
-			<a href={'/notifications'}>
+			<a href={'/me/notifications'}>
 				<IconButton
 					on:click={() => {
 						link = 2;
@@ -52,49 +52,55 @@
 					</div>
 				</IconButton>
 			</a>
-			<IconButton
-				on:click={() => {
-					link = 3;
-				}}
-				ripple={false}
-			>
-				<div
-					class={`${
-						link === 3 ? 'text-black' : 'text-gray-400'
-					} w-10 h-10 active:bg-gray-200 hover:bg-gray-100 rounded-full p-2`}
+			<a href={'/me/lists'}>
+				<IconButton
+					on:click={() => {
+						link = 3;
+					}}
+					ripple={false}
 				>
-					<MdBookmarkBorder />
-				</div>
-			</IconButton>
-			<IconButton
-				on:click={() => {
-					link = 4;
-				}}
-				ripple={false}
-			>
-				<div
-					class={`${
-						link === 4 ? 'text-black' : 'text-gray-400'
-					} w-10 h-10 active:bg-gray-200 hover:bg-gray-100 rounded-full p-2`}
+					<div
+						class={`${
+							link === 3 ? 'text-black' : 'text-gray-400'
+						} w-10 h-10 active:bg-gray-200 hover:bg-gray-100 rounded-full p-2`}
+					>
+						<MdBookmarkBorder />
+					</div>
+				</IconButton>
+			</a>
+			<a href={'/me/stories/drafts'}>
+				<IconButton
+					on:click={() => {
+						link = 4;
+					}}
+					ripple={false}
 				>
-					<IoIosPaper />
-				</div>
-			</IconButton>
+					<div
+						class={`${
+							link === 4 ? 'text-black' : 'text-gray-400'
+						} w-10 h-10 active:bg-gray-200 hover:bg-gray-100 rounded-full p-2`}
+					>
+						<IoIosPaper />
+					</div>
+				</IconButton>
+			</a>
 			<hr class="bg-gray-200 w-12" />
-			<IconButton
-				on:click={() => {
-					link = 5;
-				}}
-				ripple={false}
-			>
-				<div
-					class={`${
-						link === 5 ? 'text-black' : 'text-gray-400'
-					} w-10 h-10 active:bg-gray-200 hover:bg-gray-100 rounded-full p-2`}
+			<a href={'/new-story'}>
+				<IconButton
+					on:click={() => {
+						link = 5;
+					}}
+					ripple={false}
 				>
-					<FaEdit />
-				</div>
-			</IconButton>
+					<div
+						class={`${
+							link === 5 ? 'text-black' : 'text-gray-400'
+						} w-10 h-10 active:bg-gray-200 hover:bg-gray-100 rounded-full p-2`}
+					>
+						<FaEdit />
+					</div>
+				</IconButton>
+			</a>
 		</div>
 		<div class="flex items-center justify-center rounded-full h-10 w-10 bg-blue-500">
 			<p class="text-white text-lg font-bold">B</p>

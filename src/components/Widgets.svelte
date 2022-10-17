@@ -1,8 +1,9 @@
 <script lang="ts">
+	import FollowSuggestion from './FollowSuggestion.svelte';
 	import IoIosSearch from 'svelte-icons/io/IoIosSearch.svelte';
 	import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
 	import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
-    import TiBookmark from 'svelte-icons/ti/TiBookmark.svelte'
+	import TiBookmark from 'svelte-icons/ti/TiBookmark.svelte';
 	let topics = [
 		'Technology',
 		'Money',
@@ -77,7 +78,7 @@
 	</div>
 	<div class="  space-y-4 flex flex-col">
 		<div class="flex flex-row  space-x-1.5">
-			<div class="h-2 w-2 rounded-full mt-2.5    bg-green-600" />
+			<div class="h-2 w-2 rounded-full mt-2.5    bg-[#1a8917]" />
 
 			<p class="font-semibold text-[18px]">Staff Picks</p>
 		</div>
@@ -93,7 +94,7 @@
 				</div>
 			{/each}
 		</div>
-		<p class=" text-sm text-green-600">See the full list</p>
+		<p class=" text-sm text-[#1a8917]">See the full list</p>
 	</div>
 	<div class="mt-4 w-full space-y-10 flex flex-col bg-blue-200 rounded-md  p-5">
 		<div class="flex flex-row justify-between">
@@ -144,35 +145,20 @@
 	</div>
 	<div class="  space-y-4 flex flex-col">
 		<h4 class="font-semibold text-[18px]">Who to follow</h4>
-		<div class="flex flex-col gap-3 flex-wrap">
+		<div class="flex flex-col gap-4 flex-wrap">
 			{#each follows as item}
-				<div class="w-full flex flex-row space-x-2">
-					<img class="rounded-full h-12 w-12" src={item.profilePicture} alt={item.profileName} />
-					<div class="flex-1 flex flex-row justify-between flex-wrap">
-						<div class="flex flex-col w-full lg:w-[75%] space-y-2">
-							<h4 class="font-bold text-[17px]">{item.profileName}</h4>
-							<p class="text-gray-500 text-sm">
-								{item.description.slice(0, 69)}...
-							</p>
-						</div>
-						<button
-							class="mt-5 h-fit  flex  space-x-2 flex-row rounded-full border border-black p-2 w-fit"
-							>Follow</button
-						>
-					</div>
-				</div>
+				<FollowSuggestion {item} locatedInWidgets />
 			{/each}
 		</div>
-		<p class=" text-green-600">See more suggestions</p>
+		<p class=" text-[#1a8917]">See more suggestions</p>
 	</div>
-    <div class="  space-y-4 flex flex-col">
+	<div class="  space-y-4 flex flex-col">
 		<h4 class="font-semibold text-[18px]">Developer description</h4>
 		<div class="flex flex-row gap-3 flex-wrap">
-		
-				<p class="min-w-[50px] text-gray-500 ">
-					This site was created by RUTAGENGWA Asante Bruce not for commercial purpose but for SvelteKit eductaion prupose
-				</p>
-		
+			<p class="min-w-[50px] text-gray-500 ">
+				This site was created by RUTAGENGWA Asante Bruce not for commercial purpose but for
+				SvelteKit eductaion prupose
+			</p>
 		</div>
 	</div>
 </div>
