@@ -76,9 +76,14 @@
 					class="p-5 top-1 w-32 left-10 flex-row space-x-3  bg-white flex-1 bottom-5  absolute flex flex-nowrap"
 					transition:fly={{ x: 20, duration: 500 }}
 				>
-					<div class={`h-8 w-8 rounded-full border border-black p-1.5 relative ${
+					<button on:click={() => {
+						files=undefined;
+						imageToPost=""
+						optionsVisible = false;
+					}} class={`h-8 w-8 rounded-full border border-black p-1.5 relative ${
 						imageToPost!=="" ? 'text-red-500 border-red-500' : 'border black text-black'
 					}`}>
+						{#if imageToPost===""}
 						<input
 							type="file"
 							class="max-h-[25px] -left-[0px] bottom-1 cursor-pointer opacity-0 max-w-[28px] absolute"
@@ -86,8 +91,9 @@
 							bind:files
 							accept="image/*"
 						/>
+						{/if}
 						<TiCameraOutline />
-					</div>
+					</button>
 					<button
 						on:click={() => {
 							descriptionInputVisible = !descriptionInputVisible;
